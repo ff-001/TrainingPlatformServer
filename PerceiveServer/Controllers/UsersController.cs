@@ -48,10 +48,11 @@ namespace PerceiveServer.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,FullName,Age,Gender,PassWord,Username,CreateDate,LoginDate,IsOnline")] User user)
+        public async Task<ActionResult> Create([Bind(Include = "ID,FullName,Age,Gender,PassWord,Username,LoginDate,IsOnline")] User user)
         {
             if (ModelState.IsValid)
             {
+                user.CreateDate = DateTime.UtcNow;
                 db.Users.Add(user);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -112,6 +113,11 @@ namespace PerceiveServer.Controllers
         public async Task<ActionResult> DeleteConfirmed(long id)
         {
             User user = await db.Users.FindAsync(id);
+            var trainings = db.Trainings.Where(p => p.UserId == id);
+            foreach (var t in trainings)
+            {
+                db.Trainings.Remove(t);
+            }
             db.Users.Remove(user);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");

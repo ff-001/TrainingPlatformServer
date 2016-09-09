@@ -33,7 +33,7 @@ namespace PerceiveServer.Models
         public DateTime CreateDate { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy HH:mm}", ApplyFormatInEditMode = true)]
         [Display(Name = "Login Date")]
         public DateTime? LoginDate { get; set; }
 

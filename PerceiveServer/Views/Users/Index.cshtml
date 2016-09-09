@@ -50,7 +50,7 @@
             @Html.DisplayFor(modelItem => item.IsOnline)
         </td>
         <td>
-            @Html.ActionLink("Training", "Index", "Training")
+            @Html.ActionLink("Training", "Selected", "Trainings", new { id = item.ID }, null)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |

@@ -27,7 +27,14 @@ namespace PerceiveServer.Controllers
                     t.User = await db.Users.FindAsync(t.UserId);
                 }
             }
+            db.SaveChanges();
             return View(TrainingList);
+        }
+
+        public async Task<ActionResult> Selected(long? id)
+        {
+            var trainings = db.Trainings.Where(p => p.UserId == id);
+            return View(await trainings.ToListAsync());
         }
 
         // GET: Trainings/Details/5
@@ -60,6 +67,7 @@ namespace PerceiveServer.Controllers
         {
             if (ModelState.IsValid)
             {
+                training.CreatDate = DateTime.UtcNow;
                 db.Trainings.Add(training);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
@@ -89,7 +97,7 @@ namespace PerceiveServer.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,CreatDate,Type,PauseTime,PausePosition,FaultCount,FinishDate,IsFinished,UserId")] Training training)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,Type,PauseTime,PausePosition,FaultCount,FinishDate,IsFinished,UserId")] Training training)
         {
             if (ModelState.IsValid)
             {
@@ -122,6 +130,12 @@ namespace PerceiveServer.Controllers
         public async Task<ActionResult> DeleteConfirmed(long id)
         {
             Training training = await db.Trainings.FindAsync(id);
+
+            if (training.User != null)
+            {
+                User user = await db.Users.FindAsync(training.UserId);
+                user.Trainings.Remove(training);
+            }
             db.Trainings.Remove(training);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
