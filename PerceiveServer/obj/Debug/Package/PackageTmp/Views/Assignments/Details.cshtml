@@ -1,0 +1,42 @@
+﻿@model PerceiveServer.Models.Assignment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Assignment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Task.Instruction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Task.Instruction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Training.PausePosition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Training.PausePosition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AssignmentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
