@@ -21,26 +21,27 @@ namespace PerceiveServer.Models
             Escalator
         }
 
-        public class Task
-        {
-            [Key]
-            public long ID { get; set; }
+    public class Task
+    {
+        [Key]
+        public long ID { get; set; }
 
-            public string SourceID { get; set; }
+        public string SourceID { get; set; }
 
-            public string DestinationID { get; set; }
+        public string DestinationID { get; set; }
 
-            [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Please select a task level.")]
-            [System.ComponentModel.DataAnnotations.Display(Name = "Level")]
-            public Level SelectLevel { get; set; }
+        [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Please select a task level.")]
+        [System.ComponentModel.DataAnnotations.Display(Name = "Level")]
+        public Level SelectLevel { get; set; }
 
-            public string Instruction { get; set; }
+        public string Instruction { get; set; }
 
-            [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Please select a transmit type.")]
-            [System.ComponentModel.DataAnnotations.Display(Name = "Transmit Type")]
-            public TransmitType? SelectTransmitType { get; set; }
+        [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Please select a transmit type.")]
+        [System.ComponentModel.DataAnnotations.Display(Name = "Transmit Type")]
+        public TransmitType? SelectTransmitType { get; set; }
 
-            public int FaultCount { get; set; }
+        public int FaultCount { get; set; }
 
-        }
+        public virtual ICollection<Assignment> Assignment { get; set; }
     }
+}

@@ -112,7 +112,6 @@ C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\System.Web.WebPages
 C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\System.Web.WebPages.Razor.xml
 C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\Antlr3.Runtime.pdb
 C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\Newtonsoft.Json.xml
-C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServer.csprojResolveAssemblyReference.cache
 C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServer.Migrations.UpdateTraining.resources
 C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServer.Migrations.UpdateTask.resources
 C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServer.csproj.GenerateResource.Cache
@@ -120,3 +119,5 @@ C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServe
 C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServer.pdb
 C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServer.Migrations.AddCurrentTask.resources
 C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServer.Migrations.UpdateTimeDisplay.resources
+C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServer.csprojResolveAssemblyReference.cache
+C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServer.Migrations.UpdateTimeDisplay1.resources

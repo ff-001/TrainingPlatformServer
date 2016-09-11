@@ -81,11 +81,13 @@ namespace PerceiveServer.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,FullName,Age,Gender,PassWord,Username,CreateDate,LoginDate,IsOnline")] User user)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,FullName,Age,Gender,PassWord,Username,IsOnline")] User user)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(user).State = EntityState.Modified;
+                user.CreateDate = DateTime.UtcNow;
+                user.LoginDate = DateTime.UtcNow;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }

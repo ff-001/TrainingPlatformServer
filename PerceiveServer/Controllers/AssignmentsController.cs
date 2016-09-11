@@ -41,8 +41,8 @@ namespace PerceiveServer.Controllers
         // GET: Assignments/Create
         public ActionResult Create()
         {
-            ViewBag.TaskID = new SelectList(db.Tasks, "ID", "Instruction");
-            ViewBag.TrainingID = new SelectList(db.Trainings, "ID", "PausePosition");
+            ViewBag.TaskID = new SelectList(db.Tasks, "ID", "ID");
+            ViewBag.TrainingID = new SelectList(db.Trainings, "ID", "ID");
             return View();
         }
 
@@ -60,8 +60,8 @@ namespace PerceiveServer.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.TaskID = new SelectList(db.Tasks, "ID", "Instruction", assignment.TaskID);
-            ViewBag.TrainingID = new SelectList(db.Trainings, "ID", "PausePosition", assignment.TrainingID);
+            ViewBag.TaskID = new SelectList(db.Tasks, "ID", "ID", assignment.TaskID);
+            ViewBag.TrainingID = new SelectList(db.Trainings, "ID", "ID", assignment.TrainingID);
             return View(assignment);
         }
 
@@ -77,8 +77,8 @@ namespace PerceiveServer.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TaskID = new SelectList(db.Tasks, "ID", "Instruction", assignment.TaskID);
-            ViewBag.TrainingID = new SelectList(db.Trainings, "ID", "PausePosition", assignment.TrainingID);
+            ViewBag.TaskID = new SelectList(db.Tasks, "ID", "ID", assignment.TaskID);
+            ViewBag.TrainingID = new SelectList(db.Trainings, "ID", "ID", assignment.TrainingID);
             return View(assignment);
         }
 
@@ -95,8 +95,8 @@ namespace PerceiveServer.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.TaskID = new SelectList(db.Tasks, "ID", "Instruction", assignment.TaskID);
-            ViewBag.TrainingID = new SelectList(db.Trainings, "ID", "PausePosition", assignment.TrainingID);
+            ViewBag.TaskID = new SelectList(db.Tasks, "ID", "ID", assignment.TaskID);
+            ViewBag.TrainingID = new SelectList(db.Trainings, "ID", "ID", assignment.TrainingID);
             return View(assignment);
         }
 

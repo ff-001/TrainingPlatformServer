@@ -55,6 +55,7 @@ namespace PerceiveServer.Controllers
         // GET: Trainings/Create
         public ActionResult Create()
         {
+            ViewBag.UserId = new SelectList(db.Users, "ID", "FullName");
             return View();
         }
 
@@ -63,7 +64,7 @@ namespace PerceiveServer.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,CreatDate,Type,PauseTime,PausePosition,FaultCount,FinishDate,IsFinished")] Training training)
+        public async Task<ActionResult> Create([Bind(Include = "ID,CreatDate,Type,PauseTime,PausePosition,CurrentTaskId,FaultCount,FinishDate,IsFinished,UserId")] Training training)
         {
             if (ModelState.IsValid)
             {
@@ -73,6 +74,7 @@ namespace PerceiveServer.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.UserId = new SelectList(db.Users, "ID", "FullName", training.UserId);
             return View(training);
         }
 
@@ -97,7 +99,7 @@ namespace PerceiveServer.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ID,Type,PauseTime,PausePosition,FaultCount,FinishDate,IsFinished,UserId")] Training training)
+        public async Task<ActionResult> Edit([Bind(Include = "ID,CreatDate,Type,PauseTime,PausePosition,CurrentTaskId,FaultCount,FinishDate,IsFinished,UserId")] Training training)
         {
             if (ModelState.IsValid)
             {
@@ -130,12 +132,6 @@ namespace PerceiveServer.Controllers
         public async Task<ActionResult> DeleteConfirmed(long id)
         {
             Training training = await db.Trainings.FindAsync(id);
-
-            if (training.User != null)
-            {
-                User user = await db.Users.FindAsync(training.UserId);
-                user.Trainings.Remove(training);
-            }
             db.Trainings.Remove(training);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");

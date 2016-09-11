@@ -15,14 +15,47 @@ namespace PerceiveServer.Controllers
     public class TasksController : Controller
     {
         private PerceiveContext db = new PerceiveContext();
-
+        static long ParentId = 0;
         // GET: Tasks
         public async Task<ActionResult> Index()
         {
             return View(await db.Tasks.ToListAsync());
         }
+
+        public async Task<ActionResult> Selected(long? id)
+        {
+            if (id == null)
+            {
+                id = ParentId;
+            }
+            ParentId = (long)id;
+            Training training = await db.Trainings.FindAsync(id);
+            List<Models.Task> tasks = new List<Models.Task>();
+            foreach (var assignment in training.Assignment)
+            {
+                tasks.Add(assignment.Task);
+            }
+            return View(tasks);
+        }
+
         // GET: Tasks
-        public async Task<ActionResult> Add()
+        public async Task<ActionResult> Add(long id)
+        {
+            Assignment assignment = new Assignment { TaskID = id, TrainingID = ParentId, Date = DateTime.UtcNow };
+            Training training = await db.Trainings.FindAsync(ParentId);
+            if (!training.Assignment.Contains(assignment))
+            {
+                db.Assignments.Add(assignment);
+            }
+            else
+            {
+                return RedirectToAction("AddMore");
+            }
+            await db.SaveChangesAsync();
+            return RedirectToAction("Selected", new { id = ParentId });
+        }
+        // GET: Tasks/AddMore
+        public async Task<ActionResult> AddMore()
         {
             return View(await db.Tasks.ToListAsync());
         }
@@ -108,6 +141,19 @@ namespace PerceiveServer.Controllers
                 return HttpNotFound();
             }
             return View(task);
+        }
+
+        // GET: Tasks/Delete/5
+        public async Task<ActionResult> DeleteInTraining(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var assignment = db.Assignments.Where(p => p.TrainingID == ParentId).First(a => a.TaskID == id);
+            db.Assignments.Remove(assignment);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Selected", new { id = ParentId });
         }
 
         // POST: Tasks/Delete/5

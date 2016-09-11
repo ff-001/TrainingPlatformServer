@@ -182,6 +182,10 @@
     <Compile Include="Migrations\201609092216093_UpdateTimeDisplay.Designer.cs">
       <DependentUpon>201609092216093_UpdateTimeDisplay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201609110454037_UpdateTimeDisplay1.cs" />
+    <Compile Include="Migrations\201609110454037_UpdateTimeDisplay1.Designer.cs">
+      <DependentUpon>201609110454037_UpdateTimeDisplay1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Assignment.cs" />
     <Compile Include="Models\Task.cs" />
@@ -253,8 +257,9 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
-    <Content Include="Views\Tasks\Add.cshtml" />
+    <Content Include="Views\Tasks\AddMore.cshtml" />
     <Content Include="Views\Trainings\Selected.cshtml" />
+    <Content Include="Views\Tasks\Selected.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -279,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201609092216093_UpdateTimeDisplay.resx">
       <DependentUpon>201609092216093_UpdateTimeDisplay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201609110454037_UpdateTimeDisplay1.resx">
+      <DependentUpon>201609110454037_UpdateTimeDisplay1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

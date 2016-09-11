@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Training List</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.User)
+            @Html.DisplayNameFor(model => model.User.FullName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CreatDate)
@@ -21,10 +21,16 @@
             @Html.DisplayNameFor(model => model.Type)
         </th>
         <th>
-            <p>Fault Count</p>
+            @Html.DisplayNameFor(model => model.CurrentTaskId)
         </th>
         <th>
-            <p>Finished?</p>
+            @Html.DisplayNameFor(model => model.FaultCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FinishDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsFinished)
         </th>
         <th>
             <p>Tasks</p>
@@ -41,23 +47,22 @@
             @Html.DisplayFor(modelItem => item.CreatDate)
         </td>
         <td>
-            @if (item.Type == 1)
-            {
-                <p>Self-Exploration</p>
-            }
-            else
-            {
-                <p>Application User Training</p>
-            }
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentTaskId)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FaultCount)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.FinishDate)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.IsFinished)
         </td>
         <td>
-            @Html.ActionLink("Task", "Index", "Tasks")
+            @Html.ActionLink("Task", "Selected", "Tasks", new { id = item.ID }, null)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
