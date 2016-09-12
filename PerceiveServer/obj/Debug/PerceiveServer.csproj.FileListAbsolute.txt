@@ -121,3 +121,14 @@ C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServe
 C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServer.Migrations.UpdateTimeDisplay.resources
 C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServer.csprojResolveAssemblyReference.cache
 C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\obj\Debug\PerceiveServer.Migrations.UpdateTimeDisplay1.resources
+C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\Microsoft.Owin.dll
+C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\Microsoft.Owin.Security.dll
+C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\Owin.dll
+C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\Microsoft.Owin.xml
+C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\ico0018\Documents\PERCEIVEServer\PerceiveServer\bin\Microsoft.Owin.Security.xml
