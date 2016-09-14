@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PerceiveServer.Models.Task>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Add Tasks</h2>
+
+<p>
+    @Html.ActionLink("Back to List", "Selected")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SourceID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DestinationID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelectLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instruction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelectTransmitType)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SourceID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DestinationID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SelectLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instruction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SelectTransmitType)
+        </td>
+        <td>
+            @Html.ActionLink("Add", "Add", new { id = item.ID })
+        </td>
+
+    </tr>
+}
+
+</table>

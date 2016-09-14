@@ -17,7 +17,7 @@ namespace PerceiveServer.DAL
 
         public DbSet<User> Users { get; set; }
         public DbSet<Training> Trainings { get; set; }
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<Models.Task> Tasks { get; set; }
         public DbSet<Assignment> Assignments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

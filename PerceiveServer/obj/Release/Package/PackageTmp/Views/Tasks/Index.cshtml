@@ -1,0 +1,62 @@
+﻿@model IEnumerable<PerceiveServer.Models.Task>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Task List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SourceID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DestinationID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelectLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instruction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SelectTransmitType)
+        </th>
+        <th>
+            <p>Fault Count</p>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SourceID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DestinationID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SelectLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instruction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SelectTransmitType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FaultCount)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

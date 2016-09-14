@@ -1,0 +1,66 @@
+﻿@model PerceiveServer.Models.Task
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Task</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SourceID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SourceID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DestinationID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DestinationID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SelectLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelectLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Instruction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Instruction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SelectTransmitType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelectTransmitType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FaultCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FaultCount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

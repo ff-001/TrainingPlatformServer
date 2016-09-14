@@ -1,0 +1,90 @@
+﻿@model PerceiveServer.Models.Training
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Training</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PauseTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PauseTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PausePosition)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PausePosition)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentTaskId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentTaskId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FaultCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FaultCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinishDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinishDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsFinished)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsFinished)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

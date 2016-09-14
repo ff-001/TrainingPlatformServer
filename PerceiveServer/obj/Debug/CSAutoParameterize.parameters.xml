@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="PerceiveContext-Web.config Connection String" description="PerceiveContext Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:zigokres9c.database.windows.net,1433;Initial Catalog=SignalRAofsNQTif;Persist Security Info=False;User ID=ico0018;Password=RHD3v9gt;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+  <parameter name="PerceiveContext-Web.config Connection String" description="PerceiveContext Connection String used in web.config by the application to access the database." defaultValue="Server=tcp:huwsql.database.windows.net,1433;Initial Catalog=huwgamesSQL;Persist Security Info=False;User ID=ico0018;Password=RHD3v9gt;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\ico0018\\Documents\\PERCEIVEServer\\PerceiveServer\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PerceiveContext']/@connectionString" />
   </parameter>
 </parameters>

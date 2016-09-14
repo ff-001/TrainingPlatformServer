@@ -205,25 +205,9 @@
     </Compile>
     <Compile Include="Helper\DTOHelper.cs" />
     <Compile Include="Hubs\SignalRHub.cs" />
-    <Compile Include="Migrations\201609072203054_UpdateTraining.cs" />
-    <Compile Include="Migrations\201609072203054_UpdateTraining.Designer.cs">
-      <DependentUpon>201609072203054_UpdateTraining.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609072338397_UpdateTask.cs" />
-    <Compile Include="Migrations\201609072338397_UpdateTask.Designer.cs">
-      <DependentUpon>201609072338397_UpdateTask.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609091957592_AddCurrentTask.cs" />
-    <Compile Include="Migrations\201609091957592_AddCurrentTask.Designer.cs">
-      <DependentUpon>201609091957592_AddCurrentTask.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609092216093_UpdateTimeDisplay.cs" />
-    <Compile Include="Migrations\201609092216093_UpdateTimeDisplay.Designer.cs">
-      <DependentUpon>201609092216093_UpdateTimeDisplay.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201609110454037_UpdateTimeDisplay1.cs" />
-    <Compile Include="Migrations\201609110454037_UpdateTimeDisplay1.Designer.cs">
-      <DependentUpon>201609110454037_UpdateTimeDisplay1.cs</DependentUpon>
+    <Compile Include="Migrations\201609141452508_init.cs" />
+    <Compile Include="Migrations\201609141452508_init.Designer.cs">
+      <DependentUpon>201609141452508_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Assignment.cs" />
@@ -249,7 +233,11 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\PERCEIVE - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\PERCEIVE - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\PERCEIVE - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\PERCEIVE - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\PERCEIVE - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\PERCEIVE - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\PerceiveServer - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\PerceiveServer - Web Deploy.pubxml" />
@@ -320,20 +308,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609072203054_UpdateTraining.resx">
-      <DependentUpon>201609072203054_UpdateTraining.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609072338397_UpdateTask.resx">
-      <DependentUpon>201609072338397_UpdateTask.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609091957592_AddCurrentTask.resx">
-      <DependentUpon>201609091957592_AddCurrentTask.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609092216093_UpdateTimeDisplay.resx">
-      <DependentUpon>201609092216093_UpdateTimeDisplay.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201609110454037_UpdateTimeDisplay1.resx">
-      <DependentUpon>201609110454037_UpdateTimeDisplay1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201609141452508_init.resx">
+      <DependentUpon>201609141452508_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

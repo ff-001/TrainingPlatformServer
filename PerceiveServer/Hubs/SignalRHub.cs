@@ -25,8 +25,52 @@ namespace PerceiveServer.Hubs
             {
                 taskList.Add(Helper.DTOHelper.convertToDTO(assignment.Task));
             }
-            //taskList.Add(new Models.DTO.Task { ID = 1, SourceID = "E", DestinationID = "D", Instruction = "h", FaultCount = 1, SelectLevel = (int)Level.Easy, SelectTransmitType = (int)TransmitType.Elevator});
             Clients.All.getTask(taskList);
+        }
+
+        public void Updatepause(string username, int trainingtype, string position, long taskID)
+        {
+            User user = db.Users.First(u => u.Username == username);
+            foreach (var training in user.Trainings)
+            {
+                if (training.Type == trainingtype)
+                {
+                    training.PausePosition = position;
+                    training.PauseTime = DateTime.UtcNow;
+                    training.CurrentTaskId = taskID;
+                }
+            }
+            db.SaveChanges();
+        }
+
+        public void Userlogin(string username, string password)
+        {
+            User user = db.Users.First(u => u.Username == username);
+            if ((user != null) && (password == user.PassWord) && (user.ConnectionID == null))
+            {
+                // update database
+                user.ConnectionID = Context.ConnectionId;
+                user.LoginDate = DateTime.UtcNow;
+                user.IsOnline = true;
+                db.SaveChanges();
+
+                Clients.Client(user.ConnectionID).login("Success", user.Username);
+            }
+            else
+            {
+                Clients.Client(Context.ConnectionId).login("Fail", "");
+            }
+        }
+
+        public void Userlogout(string username)
+        {
+            User user = db.Users.First(u => u.Username == username);
+                // update database
+            user.ConnectionID = null;
+            user.IsOnline = false;
+            db.SaveChanges();
+
+            Clients.Client(Context.ConnectionId).login("Logout", user.Username);
         }
     }
 }

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<PerceiveServer.Models.Training>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Training List</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            <p>Fault Count</p>
+        </th>
+        <th>
+            <p>Finished?</p>
+        </th>
+        <th>
+            <p>Tasks</p>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatDate)
+        </td>
+        <td>
+            @if (item.Type == 1)
+            {
+                <p>Self-Exploration</p>
+            }
+            else
+            {
+                <p>Application User Training</p>
+            }
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FaultCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsFinished)
+        </td>
+        <td>
+            @Html.ActionLink("Task", "Selected", "Tasks", new { id = item.ID }, null)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

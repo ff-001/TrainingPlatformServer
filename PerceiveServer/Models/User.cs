@@ -39,6 +39,8 @@ namespace PerceiveServer.Models
 
         public bool IsOnline { get; set; }
 
+        public string ConnectionID { get; set; }
+
         public virtual ICollection<Training> Trainings { get; set; }
     }
 }
