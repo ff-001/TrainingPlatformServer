@@ -255,7 +255,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="SignalRTestPage.html" />
+    <Content Include="TrainingUpdate.html" />
+    <Content Include="UserUpdate.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

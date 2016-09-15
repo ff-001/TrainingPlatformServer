@@ -15,8 +15,8 @@
     <div class="container">
         <input type="text" id="message" />
         <input type="text" id="training" />
-        <input type="button" id="sendmessage" value="Send" />
-        <input type="button" id="logout" value="Quit" />
+        <input type="button" id="sendmessage" value="PAT" />
+        <input type="button" id="logout" value="SEM" />
         <ul id="discussion"></ul>
     </div>
     <!--Script references. -->
@@ -32,7 +32,7 @@
             // Declare a proxy to reference the hub.
             var chat = $.connection.signalRHub;
             // Create a function that the hub can call to broadcast messages.
-            chat.client.login = function (name, message) {
+            chat.client.getTraining = function (name, message) {
                 // Html encode display name and message.
                 var encodedName = $('<div />').text(name).html();
                 var encodedMsg = $('<div />').text(message).html();
@@ -48,13 +48,13 @@
             $.connection.hub.start().done(function () {
                 $('#sendmessage').click(function () {
                     // Call the Send method on the hub.
-                    chat.server.userlogin($('#message').val());
+                    chat.server.gettraining($('#message').val(), 2);
                     // Clear text box and reset focus for next comment.
                     $('#message').val('').focus();
                 });
                 $('#logout').click(function () {
                     // Call the Send method on the hub.
-                    chat.server.userlogout($('#displayname').val());
+                    chat.server.gettraining($('#message').val(), 1);
                     // Clear text box and reset focus for next comment.
                     $('#message').val('').focus();
                 });

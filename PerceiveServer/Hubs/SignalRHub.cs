@@ -53,7 +53,7 @@ namespace PerceiveServer.Hubs
                 user.LoginDate = DateTime.UtcNow;
                 user.IsOnline = true;
                 db.SaveChanges();
-
+                CreateTraining(user);
                 Clients.Client(user.ConnectionID).login("Success", user.Username);
             }
             else
@@ -71,6 +71,82 @@ namespace PerceiveServer.Hubs
             db.SaveChanges();
 
             Clients.Client(Context.ConnectionId).login("Logout", user.Username);
+        }
+
+        public void Gettraining(string username, int trainingType)
+        {
+
+            User user = db.Users.First(u => u.Username == username);
+            Training training = user.Trainings.First(t => t.Type == trainingType);
+
+            Clients.Client(user.ConnectionID).getTraining(training.ID, training.PausePosition, training.CurrentTaskId);
+        }
+
+        public void Finish(long trainingID)
+        {
+            Training t = db.Trainings.Find(trainingID);
+            t.IsFinished = true;
+            t.FinishDate = DateTime.Now;
+            db.SaveChanges();
+        }
+
+        public void Fault(long trainingID, long currentTask)
+        {
+            Training training = db.Trainings.Find(trainingID);
+            Models.Task task = db.Tasks.Find(currentTask);
+            training.FaultCount++;
+            task.FaultCount++;
+            db.SaveChanges();
+        }
+
+        private void CreateTraining(User user)
+        {
+            
+            if (user.Trainings.Count == 0)
+            {
+                Training training1 = new Training()
+                {
+                    CreatDate = DateTime.Now,
+                    Type = 1,
+                    User = user,
+                    UserId = user.ID,
+                    FaultCount = 0,
+                    PausePosition = "",
+                    CurrentTaskId = 0
+                };
+                Training training2 = new Training()
+                {
+                    CreatDate = DateTime.Now,
+                    Type = 2,
+                    User = user,
+                    UserId = user.ID,
+                    FaultCount = 0,
+                    PausePosition = "",
+                    CurrentTaskId = 0
+                };
+                user.Trainings.Add(training1);
+                AddTasks(training1);
+                user.Trainings.Add(training2);
+                db.SaveChanges();
+            }
+        }
+
+        private void AddTasks(Training training)
+        {
+            List<Models.Task> tasks = db.Tasks.ToList();
+            foreach (var t in tasks)
+            {
+                Assignment assignment = new Assignment()
+                {
+                    TaskID = t.ID,
+                    TrainingID = training.ID,
+                    Task = t,
+                    Training = training,
+                    Date = DateTime.Now
+                };
+                db.Assignments.Add(assignment);
+            }
+            db.SaveChanges();
         }
     }
 }

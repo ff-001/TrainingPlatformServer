@@ -64,11 +64,13 @@ namespace PerceiveServer.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ID,CreatDate,Type,PauseTime,PausePosition,CurrentTaskId,FaultCount,FinishDate,IsFinished,UserId")] Training training)
+        public async Task<ActionResult> Create([Bind(Include = "ID,CreatDate,Type,FaultCount,FinishDate,IsFinished,UserId")] Training training)
         {
             if (ModelState.IsValid)
             {
                 training.CreatDate = DateTime.UtcNow;
+                training.PausePosition = "";
+                training.CurrentTaskId = 0;
                 db.Trainings.Add(training);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
